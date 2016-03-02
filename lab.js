@@ -47,10 +47,10 @@ var lab = {
          * Objective: multiply each number in the array by 2 and return the modified array
          */
         foreach: function(arg) {
-            arg.forEach( function(v, i, ar) { 
-                ar[i] = v*2; 
-                });
-                return arg;
+           for (var i = 0; i < arg.length; i++) {
+               arg[i] = arg[i] * 2;
+           }
+           return arg;
         },
         /**
          * the map method should iterate over the array and perform a function on all the array items
@@ -58,11 +58,11 @@ var lab = {
          * Objective: multiple each number in the array by 2 and return the new array
          */
         map: function(arg) {
-            var ar2 = arg.map( function(v) { 
-                return v*2; 
-                });
-                return ar2;
-
+            var results = [];
+            for (var i = 0; i < arg.length; i++) {
+               results.push(arg[i] * 2);
+           }
+           return results;
         },
         /**
          * the filter method should iterate over the array and perform a test on each value in the array
@@ -70,22 +70,24 @@ var lab = {
          * Objective: return array of values that are > 30
          */
         filter: function(arg, min) {
-                var arg2 = arg.filter( function(v) {
-                           if ( v > min ) {
-                           return true;
-                           }
-                           });
-               return arg2;
+                var results = [];
+            for (var i = 0; i < arg.length; i++) {
+               if( arg[i] > min) {
+                   results.push(arg[i]);
+               }
+           }
+           return results;
         },
         /**
          * the concatAll method should take in a nested array and then return a new array that has been flattened
          * this means the array does not contain any items within it that themselves an array
          */
         concatAll: function(arg) {
-                   var arg2 = arg.concat( function(v) {
-                        arg.concatALL(v);
-                   });
-                   return arg2;
+                   var results = [];
+            for (var i = 0; i < arg.length; i++) {
+               results.push(arg[i] * 2);
+           }
+           return results;
         },
         /**
          * the reduce method should take in an array, an iterator function (created above), and an accumulator--for our
